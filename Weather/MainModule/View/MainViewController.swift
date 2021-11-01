@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, MainViewProtocol {
     var presenter: MainViewProtocol!
-    var string = "fgd,mnbfsfdfd"
+    
     @IBOutlet weak var CityTableView: UITableView!
     
     override func viewDidLoad() {
