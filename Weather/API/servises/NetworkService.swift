@@ -19,8 +19,9 @@ class NetworkService: NetworkServiceProtocol {
         var request = URLRequest(url: URL(string: urll)!)
         var task = URLSession.shared.dataTask(with: request) {
             data, response, error in
-            print(String(decoding: data!, as: UTF8.self))
-            print(error)
+            if let data = data, let city = try? JSONDecoder().decode(City.self, from: data) {
+                print(city.name)
+            }
         }
         task.resume()
         
