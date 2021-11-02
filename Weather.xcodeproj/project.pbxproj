@@ -14,7 +14,6 @@
 		CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02327302562001FF8FF /* MainPresenter.swift */; };
 		CE2AC03627302562001FF8FF /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02527302562001FF8FF /* CityModel.swift */; };
 		CE2AC03727302562001FF8FF /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02627302562001FF8FF /* MainModel.swift */; };
-		CE2AC03827302562001FF8FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02827302562001FF8FF /* ViewController.swift */; };
 		CE2AC03927302562001FF8FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02927302562001FF8FF /* MainViewController.swift */; };
 		CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC02A27302562001FF8FF /* MainView.storyboard */; };
 		CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02D27302562001FF8FF /* SceneDelegate.swift */; };
@@ -29,7 +28,6 @@
 		CE2AC02327302562001FF8FF /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		CE2AC02527302562001FF8FF /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		CE2AC02627302562001FF8FF /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
-		CE2AC02827302562001FF8FF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE2AC02927302562001FF8FF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE2AC02B27302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainView.storyboard; sourceTree = "<group>"; };
 		CE2AC02C27302562001FF8FF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +66,7 @@
 			children = (
 				CE2AC01627302562001FF8FF /* Assets.xcassets */,
 				CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */,
+				CE2AC02627302562001FF8FF /* MainModel.swift */,
 				CE2AC01927302562001FF8FF /* API */,
 				CE2AC02027302562001FF8FF /* AppDelegate.swift */,
 				CE2AC02127302562001FF8FF /* MainModule */,
@@ -115,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				CE2AC02527302562001FF8FF /* CityModel.swift */,
-				CE2AC02627302562001FF8FF /* MainModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,7 +121,6 @@
 		CE2AC02727302562001FF8FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE2AC02827302562001FF8FF /* ViewController.swift */,
 				CE2AC02927302562001FF8FF /* MainViewController.swift */,
 				CE2AC02A27302562001FF8FF /* MainView.storyboard */,
 			);
@@ -203,7 +200,6 @@
 			files = (
 				CE2AC03727302562001FF8FF /* MainModel.swift in Sources */,
 				CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */,
-				CE2AC03827302562001FF8FF /* ViewController.swift in Sources */,
 				CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */,
 				CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */,
 				CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */,
