@@ -10,9 +10,6 @@
 		CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01627302562001FF8FF /* Assets.xcassets */; };
 		CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */; };
 		CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01B27302562001FF8FF /* NetworkService.swift */; };
-		CE2AC03127302562001FF8FF /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01D27302562001FF8FF /* Users.swift */; };
-		CE2AC03227302562001FF8FF /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01E27302562001FF8FF /* Posts.swift */; };
-		CE2AC03327302562001FF8FF /* Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01F27302562001FF8FF /* Albums.swift */; };
 		CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02027302562001FF8FF /* AppDelegate.swift */; };
 		CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02327302562001FF8FF /* MainPresenter.swift */; };
 		CE2AC03627302562001FF8FF /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02527302562001FF8FF /* CityModel.swift */; };
@@ -28,9 +25,6 @@
 		CE2AC01627302562001FF8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2AC01827302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2AC01B27302562001FF8FF /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		CE2AC01D27302562001FF8FF /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		CE2AC01E27302562001FF8FF /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		CE2AC01F27302562001FF8FF /* Albums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
 		CE2AC02027302562001FF8FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2AC02327302562001FF8FF /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		CE2AC02527302562001FF8FF /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
@@ -87,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				CE2AC01A27302562001FF8FF /* servises */,
-				CE2AC01C27302562001FF8FF /* model */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -98,16 +91,6 @@
 				CE2AC01B27302562001FF8FF /* NetworkService.swift */,
 			);
 			path = servises;
-			sourceTree = "<group>";
-		};
-		CE2AC01C27302562001FF8FF /* model */ = {
-			isa = PBXGroup;
-			children = (
-				CE2AC01D27302562001FF8FF /* Users.swift */,
-				CE2AC01E27302562001FF8FF /* Posts.swift */,
-				CE2AC01F27302562001FF8FF /* Albums.swift */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		CE2AC02127302562001FF8FF /* MainModule */ = {
@@ -219,14 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2AC03727302562001FF8FF /* MainModel.swift in Sources */,
-				CE2AC03127302562001FF8FF /* Users.swift in Sources */,
 				CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */,
 				CE2AC03827302562001FF8FF /* ViewController.swift in Sources */,
-				CE2AC03227302562001FF8FF /* Posts.swift in Sources */,
 				CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */,
 				CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */,
 				CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */,
-				CE2AC03327302562001FF8FF /* Albums.swift in Sources */,
 				CE2AC03627302562001FF8FF /* CityModel.swift in Sources */,
 				CE2AC03927302562001FF8FF /* MainViewController.swift in Sources */,
 			);
