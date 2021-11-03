@@ -8,18 +8,24 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, MainViewProtocol {
-    var presenter: MainViewProtocol!
+class MainViewController: UIViewController {
+    var presenter: MainViewPresenterProtocol!
     
     @IBOutlet weak var CityTableView: UITableView!
+    @IBOutlet weak var nameCitySearch: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter = MainPresenter(view: self, networkServise: NetworkService())
+        presenter.searchWithText("Kharkiv")
     }
-    
-    @IBOutlet weak var nameCitySearch: UISearchBar!
 }
 
+extension MainViewController: MainViewProtocol {
+    
+    func updateWithWeather(_ weather: Weather) {
+        
+    }
+}
 
 
