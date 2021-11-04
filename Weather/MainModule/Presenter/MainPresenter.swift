@@ -13,6 +13,7 @@ protocol MainViewProtocol: class {
 
 protocol MainViewPresenterProtocol: class {
     init(view: MainViewProtocol, networkServise: NetworkServiceProtocol)
+    
     var city: [City]? {get set}
     
     func searchWithText(_ text: String)
@@ -30,6 +31,7 @@ class MainPresenter: MainViewPresenterProtocol {
     required init(view: MainViewProtocol, networkServise: NetworkServiceProtocol) {
         self.view = view
         self.networkServise = networkServise
+       //     networkServise.getCity(string: searchWithText(), completition: T##([City]) -> Void)  вызвать метод networkServise.getCity, передать туда текст searchWithText
     }
     
     func searchWithText(_ text: String) {

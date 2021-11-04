@@ -19,8 +19,6 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
         presenter = MainPresenter(view: self, networkServise: NetworkService())
         //presenter.searchWithText("Kharkiv")
         self.nameCitySearch.delegate = self
-        textFieldShouldReturn(textField:nameCitySearch)
-       
     }
     func textFieldShouldReturn(textField: UISearchBar) -> Bool {
         textField.resignFirstResponder()
