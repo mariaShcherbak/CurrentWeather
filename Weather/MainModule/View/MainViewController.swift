@@ -21,7 +21,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
         self.nameCitySearch.delegate = self
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchWithText(searchBar.text!)
+        presenter.searchWithText(searchBar.text ?? "")
         }
     }
     

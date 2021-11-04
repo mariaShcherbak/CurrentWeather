@@ -21,9 +21,9 @@ protocol MainViewPresenterProtocol: class {
 
 class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol?
-    let networkServise: NetworkServiceProtocol!
+    let networkServise: NetworkServiceProtocol?
     var city: [City]?
-   
+    
     
     
 
@@ -31,8 +31,12 @@ class MainPresenter: MainViewPresenterProtocol {
     required init(view: MainViewProtocol, networkServise: NetworkServiceProtocol) {
         self.view = view
         self.networkServise = networkServise
-       //     networkServise.getCity(string: searchWithText(), completition: T##([City]) -> Void)  вызвать метод networkServise.getCity, передать туда текст searchWithText
+        
+        networkServise.getCity(string: searchWithText, completition: ([City]) -> Void)
+        
+        //вызвать метод networkServise.getCity, передать туда текст searchWithText
     }
+    
     
     func searchWithText(_ text: String) {
         
