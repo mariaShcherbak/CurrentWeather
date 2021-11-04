@@ -13,7 +13,7 @@ protocol MainViewProtocol: class {
 
 protocol MainViewPresenterProtocol: class {
     init(view: MainViewProtocol, networkServise: NetworkServiceProtocol)
-    var currentWeather: [CurrentWeather]? {get set}
+    var city: [City]? {get set}
     
     func searchWithText(_ text: String)
 }
@@ -21,9 +21,9 @@ protocol MainViewPresenterProtocol: class {
 class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol?
     let networkServise: NetworkServiceProtocol!
-    var currentWeather: [CurrentWeather]?
+    var city: [City]?
    
-    //var nameCitySearchText =
+    
     
 
    
