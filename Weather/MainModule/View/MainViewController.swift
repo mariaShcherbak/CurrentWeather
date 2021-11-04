@@ -20,12 +20,8 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
         //presenter.searchWithText("Kharkiv")
         self.nameCitySearch.delegate = self
     }
-    func textFieldShouldReturn(textField: UISearchBar) -> Bool {
-        textField.resignFirstResponder()
-        presenter.searchWithText(textField.text!)
-            return true
-       
-        
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        presenter.searchWithText(searchBar.text!)
         }
     }
     
