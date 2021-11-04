@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
         presenter = MainPresenter(view: self, networkServise: NetworkService())
         presenter.searchWithText("Kharkiv")
     }
+    
+    
 }
 
 extension MainViewController: MainViewProtocol {
