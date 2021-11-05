@@ -20,11 +20,11 @@ class NetworkService: NetworkServiceProtocol {
         var request = URLRequest(url: URL(string: url)!)
         var task = URLSession.shared.dataTask(with: request) {
             data, response, error in
-            if let data = data, let city = try? JSONDecoder().decode(City.self, from: data) {
+            if let data = data, let city = try? JSONDecoder().decode([City].self, from: data) {
                 print("атппапталп")
-                completition([city])
-                print(completition([city]))
-                self.cityArray = [city]
+                completition(city)
+                print(completition(city))
+                self.cityArray = city
                 print(self.cityArray)
               //  cityArray?.append([City])
             }
