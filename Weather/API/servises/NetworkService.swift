@@ -13,7 +13,7 @@ protocol NetworkServiceProtocol {
 
 
 class NetworkService: NetworkServiceProtocol {
-    //var cityArray: [City]?
+    var cityArray: [City]?
     func getCity(string: String, completition: @escaping([City]) -> Void) {
         var searchText = "Kharkov"
         var url = "http://htmlweb.ru/geo/api.php?json&city_name=" + searchText + "&38db0239405b5a7dcea6c9890f99ccb9"
@@ -24,6 +24,8 @@ class NetworkService: NetworkServiceProtocol {
                 print("атппапталп")
                 completition([city])
                 print(completition([city]))
+                self.cityArray = [city]
+                print(self.cityArray)
               //  cityArray?.append([City])
             }
         }

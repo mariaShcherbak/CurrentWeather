@@ -30,7 +30,7 @@ class MainPresenter: MainViewPresenterProtocol {
     }
     
     func searchWithText(_ text: String) {
-        networkServise.getCity(string: "Kharkov", completition: { ([City]) in
+        networkServise.getCity(string: text, completition: { ([City]) in
             guard self != nil else { return }
         })
     
