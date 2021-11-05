@@ -13,15 +13,16 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
     
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
-    
+   var textSearch = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(view: self, networkServise: NetworkService())
-        //presenter.searchWithText("Kharkiv")
+        
         self.nameCitySearch.delegate = self
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.searchWithText(searchBar.text ?? "")
+        textSearch = searchBar.text ?? ""
         }
     }
     

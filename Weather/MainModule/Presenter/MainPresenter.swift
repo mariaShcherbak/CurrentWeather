@@ -32,13 +32,15 @@ class MainPresenter: MainViewPresenterProtocol {
         self.view = view
         self.networkServise = networkServise
         
-        networkServise.getCity(string: searchWithText, completition: ([City]) -> Void)
+        
         
         //вызвать метод networkServise.getCity, передать туда текст searchWithText
     }
     
     
     func searchWithText(_ text: String) {
+        networkServise?.getCity(string: "khar")//, completition: ([City]) -> Void)
+            
         
     }
     
