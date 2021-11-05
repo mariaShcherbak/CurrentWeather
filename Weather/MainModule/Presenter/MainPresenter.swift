@@ -21,33 +21,19 @@ protocol MainViewPresenterProtocol: class {
 
 class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol?
-    let networkServise: NetworkServiceProtocol?
+    let networkServise: NetworkServiceProtocol!
     var city: [City]?
-    
-    
-    
 
-   
     required init(view: MainViewProtocol, networkServise: NetworkServiceProtocol) {
         self.view = view
         self.networkServise = networkServise
-        
-        
-        
-        //вызвать метод networkServise.getCity, передать туда текст searchWithText
     }
-    
     
     func searchWithText(_ text: String) {
-        networkServise?.getCity(string: "khar")//, completition: ([City]) -> Void)
-            
-        
-    }
+        networkServise.getCity(string: "Kharkov", completition: { ([City]) in
+            guard self != nil else { return }
+        })
     
-   //п http://htmlweb.ru/geo/api.php?json&city_name=Харьков&api_key=38db0239405b5a7dcea6c9890f99ccb9
+    
+        }
 }
-
-//extension MainPresenter: MainViewPresenterProtocol {
-//
-//
-//}
