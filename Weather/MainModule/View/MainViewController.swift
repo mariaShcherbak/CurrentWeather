@@ -10,10 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
     var presenter: MainViewPresenterProtocol!
-    
+    var cityArray: [City]?
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
-   var textSearch = ""
+    var textSearch : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(view: self, networkServise: NetworkService())
@@ -21,8 +21,10 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
         self.nameCitySearch.delegate = self
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchWithText(searchBar.text ?? "")
-        textSearch = searchBar.text ?? ""
+        textSearch = searchBar.text
+        cityArray = presenter.searchWithText(textSearch!)
+        print(cityArray)
+        
         }
     }
     
@@ -40,12 +42,12 @@ extension MainViewController: MainViewProtocol {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.city?.count ?? 0
+        return cityArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let city = presenter.city?[indexPath.row]
+        let city = cityArray?[indexPath.row]
         cell.textLabel?.text = "Test"
         return cell
     }

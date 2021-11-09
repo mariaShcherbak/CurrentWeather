@@ -9,31 +9,33 @@ import Foundation
 
 protocol MainViewProtocol: class {
     func updateWithWeather(_ weather: Weather)
+    var textSearch : String? { get set }
 }
 
 protocol MainViewPresenterProtocol: class {
     init(view: MainViewProtocol, networkServise: NetworkServiceProtocol)
     
-    var city: [City]? {get set}
-    
-    func searchWithText(_ text: String)
+    func searchWithText(_ text: String) -> [City]
 }
+
+
+
+
 
 class MainPresenter: MainViewPresenterProtocol {
     weak var view: MainViewProtocol?
     let networkServise: NetworkServiceProtocol!
-    var city: [City]?
+    
 
     required init(view: MainViewProtocol, networkServise: NetworkServiceProtocol) {
         self.view = view
         self.networkServise = networkServise
     }
     
-    func searchWithText(_ text: String) {
-        networkServise.getCity(string: text, completition: { ([City]) in
-            guard self != nil else { return }
-        })
-    
-    
+    func searchWithText(_ text: String) -> [City] {
+        networkServise.getData()
+        let filterCityList = networkServise.getAllCity()?.filter({($0.name!.contains(text))})
+        return filterCityList ?? [City]()
+        
         }
 }

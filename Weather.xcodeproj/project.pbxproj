@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BE6738727390EFE0066D224 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6738627390EFD0066D224 /* city.list.json */; };
 		CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01627302562001FF8FF /* Assets.xcassets */; };
 		CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */; };
 		CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01B27302562001FF8FF /* NetworkService.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BE6738627390EFD0066D224 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = city.list.json; path = ../../../../Downloads/city.list.json; sourceTree = "<group>"; };
 		CE2ABFD6273021BA001FF8FF /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2AC01627302562001FF8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2AC01827302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2AC01627302562001FF8FF /* Assets.xcassets */,
+				2BE6738627390EFD0066D224 /* city.list.json */,
 				CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */,
 				CE2AC02627302562001FF8FF /* MainModel.swift */,
 				CE2AC01927302562001FF8FF /* API */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */,
+				2BE6738727390EFE0066D224 /* city.list.json in Resources */,
 				CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */,
 				CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */,
 			);
