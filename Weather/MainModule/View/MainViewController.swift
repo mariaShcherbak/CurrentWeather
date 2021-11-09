@@ -14,17 +14,20 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
     var textSearch : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(view: self, networkServise: NetworkService())
+        CityTableView.dataSource = self
         
         self.nameCitySearch.delegate = self
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         textSearch = searchBar.text
         cityArray = presenter.searchWithText(textSearch!)
-        print(cityArray)
-        
+        print(cityArray ?? "the city is not in the list")
+        CityTableView.reloadData()
         }
     }
     
@@ -48,7 +51,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let city = cityArray?[indexPath.row]
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = city?.name
         return cell
     }
 }
