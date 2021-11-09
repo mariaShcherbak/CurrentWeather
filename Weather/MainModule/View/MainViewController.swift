@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
+class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate{
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City]?
     @IBOutlet weak var CityTableView: UITableView!
@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UISearchBarDele
         super.viewDidLoad()
         presenter = MainPresenter(view: self, networkServise: NetworkService())
         CityTableView.dataSource = self
-        
+        CityTableView.delegate = self
         self.nameCitySearch.delegate = self
     }
     
@@ -49,9 +49,30 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let city = cityArray?[indexPath.row]
-        cell.textLabel?.text = city?.name
+        let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
+        let model = cityArray?[indexPath.row]
+        cell.labelCell.text = model!.name! + ", " + model!.country!
         return cell
     }
+    }
+
+
+class CityTableViewCell: UITableViewCell {
+    static let idCell = "сityCell"
+    
+    @IBOutlet weak var cell: UIView!
+    
+    @IBOutlet weak var labelCell: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(true, animated: true)
+        
+    }
 }
+
+
+

@@ -47,6 +47,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BE6738B273AB6A80066D224 /* MainSecondModule */ = {
+			isa = PBXGroup;
+			children = (
+				2BE6738E273ACF700066D224 /* SecondModel */,
+				2BE6738D273ACF5E0066D224 /* SecondView */,
+				2BE6738C273AB6C40066D224 /* SecondPresenter */,
+			);
+			path = MainSecondModule;
+			sourceTree = "<group>";
+		};
+		2BE6738C273AB6C40066D224 /* SecondPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondPresenter;
+			sourceTree = "<group>";
+		};
+		2BE6738D273ACF5E0066D224 /* SecondView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondView;
+			sourceTree = "<group>";
+		};
+		2BE6738E273ACF700066D224 /* SecondModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondModel;
+			sourceTree = "<group>";
+		};
 		CE2ABFCD273021BA001FF8FF = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +97,7 @@
 		CE2AC01527302562001FF8FF /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2BE6738B273AB6A80066D224 /* MainSecondModule */,
 				CE2AC01627302562001FF8FF /* Assets.xcassets */,
 				2BE6738627390EFD0066D224 /* city.list.json */,
 				CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */,
