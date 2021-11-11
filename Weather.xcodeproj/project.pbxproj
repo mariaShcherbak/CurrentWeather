@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2BE6738727390EFE0066D224 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6738627390EFD0066D224 /* city.list.json */; };
+		2BE67390273B13230066D224 /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6738F273B13230066D224 /* SecondModel.swift */; };
+		2BE67393273B13370066D224 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE67392273B13370066D224 /* SecondViewController.swift */; };
+		2BE67396273B13480066D224 /* SecondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE67395273B13480066D224 /* SecondPresenter.swift */; };
+		2BE67399273B13B60066D224 /* SecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE67398273B13B60066D224 /* SecondView.storyboard */; };
 		CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01627302562001FF8FF /* Assets.xcassets */; };
 		CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */; };
 		CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01B27302562001FF8FF /* NetworkService.swift */; };
 		CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02027302562001FF8FF /* AppDelegate.swift */; };
 		CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02327302562001FF8FF /* MainPresenter.swift */; };
 		CE2AC03627302562001FF8FF /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02527302562001FF8FF /* CityModel.swift */; };
-		CE2AC03727302562001FF8FF /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02627302562001FF8FF /* MainModel.swift */; };
 		CE2AC03927302562001FF8FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02927302562001FF8FF /* MainViewController.swift */; };
 		CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC02A27302562001FF8FF /* MainView.storyboard */; };
 		CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC02D27302562001FF8FF /* SceneDelegate.swift */; };
@@ -22,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		2BE6738627390EFD0066D224 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = city.list.json; path = ../../../../Downloads/city.list.json; sourceTree = "<group>"; };
+		2BE6738F273B13230066D224 /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
+		2BE67392273B13370066D224 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2BE67395273B13480066D224 /* SecondPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPresenter.swift; sourceTree = "<group>"; };
+		2BE67398273B13B60066D224 /* SecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondView.storyboard; sourceTree = "<group>"; };
 		CE2ABFD6273021BA001FF8FF /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2AC01627302562001FF8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2AC01827302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,7 +36,6 @@
 		CE2AC02027302562001FF8FF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2AC02327302562001FF8FF /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		CE2AC02527302562001FF8FF /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
-		CE2AC02627302562001FF8FF /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		CE2AC02927302562001FF8FF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE2AC02B27302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainView.storyboard; sourceTree = "<group>"; };
 		CE2AC02C27302562001FF8FF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 		2BE6738C273AB6C40066D224 /* SecondPresenter */ = {
 			isa = PBXGroup;
 			children = (
+				2BE67395273B13480066D224 /* SecondPresenter.swift */,
 			);
 			path = SecondPresenter;
 			sourceTree = "<group>";
@@ -67,6 +74,8 @@
 		2BE6738D273ACF5E0066D224 /* SecondView */ = {
 			isa = PBXGroup;
 			children = (
+				2BE67392273B13370066D224 /* SecondViewController.swift */,
+				2BE67398273B13B60066D224 /* SecondView.storyboard */,
 			);
 			path = SecondView;
 			sourceTree = "<group>";
@@ -74,6 +83,7 @@
 		2BE6738E273ACF700066D224 /* SecondModel */ = {
 			isa = PBXGroup;
 			children = (
+				2BE6738F273B13230066D224 /* SecondModel.swift */,
 			);
 			path = SecondModel;
 			sourceTree = "<group>";
@@ -97,12 +107,11 @@
 		CE2AC01527302562001FF8FF /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				CE2AC01927302562001FF8FF /* API */,
 				2BE6738B273AB6A80066D224 /* MainSecondModule */,
 				CE2AC01627302562001FF8FF /* Assets.xcassets */,
 				2BE6738627390EFD0066D224 /* city.list.json */,
 				CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */,
-				CE2AC02627302562001FF8FF /* MainModel.swift */,
-				CE2AC01927302562001FF8FF /* API */,
 				CE2AC02027302562001FF8FF /* AppDelegate.swift */,
 				CE2AC02127302562001FF8FF /* MainModule */,
 				CE2AC02C27302562001FF8FF /* Info.plist */,
@@ -223,6 +232,7 @@
 				CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */,
 				2BE6738727390EFE0066D224 /* city.list.json in Resources */,
 				CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */,
+				2BE67399273B13B60066D224 /* SecondView.storyboard in Resources */,
 				CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,12 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2AC03727302562001FF8FF /* MainModel.swift in Sources */,
+				2BE67390273B13230066D224 /* SecondModel.swift in Sources */,
 				CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */,
+				2BE67393273B13370066D224 /* SecondViewController.swift in Sources */,
 				CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */,
 				CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */,
 				CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */,
 				CE2AC03627302562001FF8FF /* CityModel.swift in Sources */,
+				2BE67396273B13480066D224 /* SecondPresenter.swift in Sources */,
 				CE2AC03927302562001FF8FF /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

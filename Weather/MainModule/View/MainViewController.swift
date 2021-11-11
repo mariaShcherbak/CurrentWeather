@@ -29,6 +29,16 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         print(cityArray ?? "the city is not in the list")
         CityTableView.reloadData()
         }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row)") //нажатие на ячейку
+        let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+       navigationController?.pushViewController(newVC!, animated: true)
+        
+        
+        
+    }
     }
     
 

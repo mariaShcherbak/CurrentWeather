@@ -10,6 +10,7 @@ import Foundation
 protocol NetworkServiceProtocol {
     func getData() -> Data?
     func getAllCity() -> [City]?
+    func getWeather(string: String, completition: @escaping(Weather) -> Void)
 }
 
 
@@ -41,31 +42,30 @@ class NetworkService: NetworkServiceProtocol {
         return nil
     }
     
+    // второй запрос
+    func getWeather(string: String, completition: @escaping(Weather) -> Void) {
+          var url = "api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a0c15454e4511c5f6f347ad2fd72b355"
+          var request = URLRequest(url: URL(string: url)!)
+          var task = URLSession.shared.dataTask(with: request) {
+              data, response, error in
+              if let data = data, let weather = try? JSONDecoder().decode(Weather.self, from: data) {
+                completition(weather)
+                print(weather)
+              }
+              else {
+                  
+              }
+          }
+          task.resume()
+    
+    
+    
+    
+    
     
     
     }
 
 
     
-    
-/*  func getCity(string: String, completition: @escaping([City]) -> Void) {
-     // var searchText = "харьков"
-      var url = "http://htmlweb.ru/geo/api.php?city_name=" + searchText + "&json&api_key=38db0239405b5a7dcea6c9890f99ccb9"
-      print(url)
-      /////http://htmlweb.ru/geo/api.php?city_name=Kharkov&json&api_key=38db0239405b5a7dcea6c9890f99ccb9
-      var request = URLRequest(url: URL(string: url)!)
-      var task = URLSession.shared.dataTask(with: request) {
-          data, response, error in
-          if let data = data, let city = try? JSONDecoder().decode([City].self, from: data) {
-              completition(city)
-              print(completition(city))
-              self.cityArray = city
-            //  print(self.cityArray)
-            //  cityArray?.append([City])
-          }
-          else {
-              
-          }
-      }
-      task.resume()
-      */
+}
