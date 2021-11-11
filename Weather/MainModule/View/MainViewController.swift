@@ -29,20 +29,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         print(cityArray ?? "the city is not in the list")
         CityTableView.reloadData()
         }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)") //нажатие на ячейку
-        let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
-       navigationController?.pushViewController(newVC!, animated: true)
-        
-        
-        
-    }
-    }
-    
-
-
+}
 
 extension MainViewController: MainViewProtocol {
     
@@ -63,6 +50,13 @@ extension MainViewController: UITableViewDataSource {
         let model = cityArray?[indexPath.row]
         cell.labelCell.text = model!.name! + ", " + model!.country!
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row)")
+        let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+       navigationController?.pushViewController(newVC!, animated: true)
+        
     }
     }
 

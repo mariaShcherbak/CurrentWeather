@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B35FF64273DBEEF001FF1AB /* SecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */; };
+		2B35FF67273DBF0A001FF1AB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */; };
 		2BE6738727390EFE0066D224 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6738627390EFD0066D224 /* city.list.json */; };
 		2BE67390273B13230066D224 /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6738F273B13230066D224 /* SecondModel.swift */; };
-		2BE67393273B13370066D224 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE67392273B13370066D224 /* SecondViewController.swift */; };
 		2BE67396273B13480066D224 /* SecondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE67395273B13480066D224 /* SecondPresenter.swift */; };
-		2BE67399273B13B60066D224 /* SecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE67398273B13B60066D224 /* SecondView.storyboard */; };
 		CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01627302562001FF8FF /* Assets.xcassets */; };
 		CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AC01727302562001FF8FF /* LaunchScreen.storyboard */; };
 		CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AC01B27302562001FF8FF /* NetworkService.swift */; };
@@ -24,11 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondView.storyboard; sourceTree = "<group>"; };
+		2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2BE6738627390EFD0066D224 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = city.list.json; path = ../../../../Downloads/city.list.json; sourceTree = "<group>"; };
 		2BE6738F273B13230066D224 /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
-		2BE67392273B13370066D224 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2BE67395273B13480066D224 /* SecondPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPresenter.swift; sourceTree = "<group>"; };
-		2BE67398273B13B60066D224 /* SecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondView.storyboard; sourceTree = "<group>"; };
 		CE2ABFD6273021BA001FF8FF /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2AC01627302562001FF8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2AC01827302562001FF8FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 		2BE6738D273ACF5E0066D224 /* SecondView */ = {
 			isa = PBXGroup;
 			children = (
-				2BE67392273B13370066D224 /* SecondViewController.swift */,
-				2BE67398273B13B60066D224 /* SecondView.storyboard */,
+				2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */,
+				2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */,
 			);
 			path = SecondView;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 				CE2AC02E27302562001FF8FF /* Assets.xcassets in Resources */,
 				2BE6738727390EFE0066D224 /* city.list.json in Resources */,
 				CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */,
-				2BE67399273B13B60066D224 /* SecondView.storyboard in Resources */,
 				CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */,
+				2B35FF64273DBEEF001FF1AB /* SecondView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,12 +246,12 @@
 			files = (
 				2BE67390273B13230066D224 /* SecondModel.swift in Sources */,
 				CE2AC03527302562001FF8FF /* MainPresenter.swift in Sources */,
-				2BE67393273B13370066D224 /* SecondViewController.swift in Sources */,
 				CE2AC03027302562001FF8FF /* NetworkService.swift in Sources */,
 				CE2AC03427302562001FF8FF /* AppDelegate.swift in Sources */,
 				CE2AC03C27302562001FF8FF /* SceneDelegate.swift in Sources */,
 				CE2AC03627302562001FF8FF /* CityModel.swift in Sources */,
 				2BE67396273B13480066D224 /* SecondPresenter.swift in Sources */,
+				2B35FF67273DBF0A001FF1AB /* SecondViewController.swift in Sources */,
 				CE2AC03927302562001FF8FF /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
