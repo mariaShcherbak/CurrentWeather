@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OQc-sp-z7q">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -65,12 +65,70 @@
                             <constraint firstItem="RzV-eq-Rv2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="q8r-0p-kpg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="M3M-TS-VAF"/>
                     <connections>
                         <outlet property="CityTableView" destination="RzV-eq-Rv2" id="ILp-yw-1QR"/>
                         <outlet property="nameCitySearch" destination="VTf-6R-3Cj" id="g0K-g8-Pnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="71.651785714285708"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="ZET-6C-OHn">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="0u7-2O-WDB" customClass="SecondViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="02T-2l-IIq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-H7-xIn" userLabel="CityCountry">
+                                <rect key="frame" x="88" y="94" width="238" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="zAr-Vb-xgt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-Cf-iXG">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Usu-yv-KnE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7wI-Cf-iXG" firstAttribute="centerY" secondItem="02T-2l-IIq" secondAttribute="centerY" id="Hhf-EG-aoD"/>
+                            <constraint firstItem="LJE-H7-xIn" firstAttribute="centerX" secondItem="02T-2l-IIq" secondAttribute="centerX" id="ScB-lW-atB"/>
+                            <constraint firstItem="LJE-H7-xIn" firstAttribute="top" secondItem="Usu-yv-KnE" secondAttribute="top" constant="50" id="cW2-b1-pE6"/>
+                            <constraint firstItem="7wI-Cf-iXG" firstAttribute="centerX" secondItem="02T-2l-IIq" secondAttribute="centerX" id="p1Y-Yq-lQW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityCountryName" destination="LJE-H7-xIn" id="msj-IK-DC7"/>
+                        <outlet property="spiner" destination="7wI-Cf-iXG" id="68c-cX-FAv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ObO-Ug-gPB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.753623188406" y="72.991071428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mBy-uA-oiL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OQc-sp-z7q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5z6-GW-6Nr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wai-6g-teT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GRn-3H-iGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146.37681159420291" y="71.651785714285708"/>
         </scene>

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B35FF64273DBEEF001FF1AB /* SecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */; };
 		2B35FF67273DBF0A001FF1AB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */; };
 		2BE6738727390EFE0066D224 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6738627390EFD0066D224 /* city.list.json */; };
 		2BE67390273B13230066D224 /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6738F273B13230066D224 /* SecondModel.swift */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondView.storyboard; sourceTree = "<group>"; };
 		2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2BE6738627390EFD0066D224 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = city.list.json; path = ../../../../Downloads/city.list.json; sourceTree = "<group>"; };
 		2BE6738F273B13230066D224 /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 		2BE6738D273ACF5E0066D224 /* SecondView */ = {
 			isa = PBXGroup;
 			children = (
-				2B35FF63273DBEEF001FF1AB /* SecondView.storyboard */,
 				2B35FF66273DBF0A001FF1AB /* SecondViewController.swift */,
 			);
 			path = SecondView;
@@ -233,7 +230,6 @@
 				2BE6738727390EFE0066D224 /* city.list.json in Resources */,
 				CE2AC03A27302562001FF8FF /* MainView.storyboard in Resources */,
 				CE2AC02F27302562001FF8FF /* LaunchScreen.storyboard in Resources */,
-				2B35FF64273DBEEF001FF1AB /* SecondView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

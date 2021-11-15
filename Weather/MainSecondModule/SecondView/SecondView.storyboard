@@ -11,7 +11,7 @@
         <!--Second View Controller-->
         <scene sceneID="LlA-TE-yKe">
             <objects>
-                <viewController id="UzR-VU-Jis" customClass="SecondViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="UzR-VU-Jis" customClass="SecondViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9zu-64-TBU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

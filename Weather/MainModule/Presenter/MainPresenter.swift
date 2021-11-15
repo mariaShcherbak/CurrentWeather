@@ -35,12 +35,12 @@ class MainPresenter: MainViewPresenterProtocol {
     func searchWithText(_ text: String) -> [City] {
         networkServise.getData()
         let filterCityList = networkServise.getAllCity()?.filter({($0.name!.contains(text))})
-       // return filterCityList ?? [City]()
-        networkServise.getWeather(string: text) { (Weather) in
+       
+        /*networkServise.getWeather(string: text) { (Weather) in
             guard self != nil else {return}
-        }
+        } */
         return filterCityList ?? [City]()
-            
+           
         
         }
 }

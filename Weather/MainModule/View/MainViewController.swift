@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
     var textSearch : String?
+    var searchCityForWeather: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +49,19 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
         let model = cityArray?[indexPath.row]
-        cell.labelCell.text = model!.name! + ", " + model!.country!
+        cell.labelCell.text = model!.name! + "," + model!.country!
+        searchCityForWeather = cell.labelCell.text
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row)")
-        let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+              let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
        navigationController?.pushViewController(newVC!, animated: true)
+        
+        newVC?.cityCountry = searchCityForWeather ?? ""
+        print(newVC?.cityCountry)
         
     }
     }
