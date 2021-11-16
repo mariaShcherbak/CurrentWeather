@@ -14,7 +14,7 @@ protocol SecondViewProtocol: class {
 
 protocol SecondPresenterProtocol: class {
     init(view: SecondViewProtocol, networkServise: NetworkServiceProtocol)
-    func loadWeather()
+    func loadWeather() -> Weather?
     
 }
 
@@ -22,6 +22,7 @@ protocol SecondPresenterProtocol: class {
 class SecondPresenter: SecondPresenterProtocol {
     weak var view: SecondViewProtocol?
     let networkServise: NetworkServiceProtocol!
+    var weatherResult: Weather?
     
 
     required init(view: SecondViewProtocol, networkServise: NetworkServiceProtocol) {
@@ -29,12 +30,16 @@ class SecondPresenter: SecondPresenterProtocol {
         self.networkServise = networkServise
     }
     
-    func loadWeather() {
+    func loadWeather() -> Weather? {
         if view?.spinerIsOn == true {
             networkServise.getWeather(string: view?.cityCountry ?? "") { (Weather) in
                 guard self != nil else {return}
+                
             }
+            //weatherResult = networkServise.receivedWeather
+           // print(weatherResult)
         }
+        return weatherResult
     }
    
          
