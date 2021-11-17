@@ -10,6 +10,7 @@ protocol SecondViewProtocol: class {
     
     var cityCountry : String? { get set } // label
     var spinerIsOn: Bool? { get set }
+    func updateUIWithWeather(weather: Weather)
 }
 
 protocol SecondPresenterProtocol: class {
@@ -22,7 +23,7 @@ protocol SecondPresenterProtocol: class {
 class SecondPresenter: SecondPresenterProtocol {
     weak var view: SecondViewProtocol?
     let networkServise: NetworkServiceProtocol!
-    var weatherResult: Weather?
+    
     
 
     required init(view: SecondViewProtocol, networkServise: NetworkServiceProtocol) {
@@ -32,10 +33,13 @@ class SecondPresenter: SecondPresenterProtocol {
     
     func loadWeather() -> Weather? {
         if view?.spinerIsOn == true {
-            networkServise.getWeather(string: view?.cityCountry ?? "") { (Weather) in
-                guard self != nil else {return}
+            networkServise.getWeather(string: view?.cityCountry ?? "") { weather in
+                print(weather)
+                self.view?.updateUIWithWeather(weather: weather)
+               // guard self != nil else {return}
             }
         }
+        print(networkServise.receivedWeather)
         return networkServise.receivedWeather
     }
    

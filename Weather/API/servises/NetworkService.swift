@@ -51,7 +51,7 @@ class NetworkService: NetworkServiceProtocol {
               {
                 self.receivedWeather = weather.self
                 completition(weather)
-                print(self.receivedWeather ?? "receivedWeather is nil")
+                print("УРАУРАУРАУРАУРАУРА \(self.receivedWeather)" ?? "receivedWeather is nil")
               }
               else {
               }
