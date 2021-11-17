@@ -23,8 +23,8 @@ class SecondViewController: UIViewController, SecondViewProtocol {
             spinerIsOn = true
             print(spinerIsOn)
         }
-       presenter.loadWeather()
+       presenter.loadWeather() // нужна проверка перед тем как остановить spiner?
+        spiner.stopAnimating()
+        spiner.hidesWhenStopped = true
     }
-    
-    
 }

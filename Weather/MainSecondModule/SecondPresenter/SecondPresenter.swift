@@ -34,7 +34,6 @@ class SecondPresenter: SecondPresenterProtocol {
         if view?.spinerIsOn == true {
             networkServise.getWeather(string: view?.cityCountry ?? "") { (Weather) in
                 guard self != nil else {return}
-                
             }
         }
         return networkServise.receivedWeather

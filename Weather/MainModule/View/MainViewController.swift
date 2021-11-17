@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate{
+class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol {
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City]?
     @IBOutlet weak var CityTableView: UITableView!
@@ -31,15 +31,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         CityTableView.reloadData()
         }
 }
-
-extension MainViewController: MainViewProtocol {
-    
-    func updateWithWeather(_ weather: Weather) {
-        
-    }
-}
-
-
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

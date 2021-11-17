@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MainViewProtocol: class {
-    func updateWithWeather(_ weather: Weather)
     var textSearch : String? { get set }
 }
 
