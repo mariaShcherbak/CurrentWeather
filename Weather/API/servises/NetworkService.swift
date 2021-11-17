@@ -42,7 +42,6 @@ class NetworkService: NetworkServiceProtocol {
         return nil
     }
     
-    // второй запрос
     func getWeather(string: String, completition: @escaping(Weather) -> Void) {
           let url = "https://api.openweathermap.org/data/2.5/weather?q=" + string + "&appid=a0c15454e4511c5f6f347ad2fd72b355"
           let request = URLRequest(url: URL(string: url)!)
@@ -50,18 +49,15 @@ class NetworkService: NetworkServiceProtocol {
               data, response, error in
               if let data = data, let weather = try? JSONDecoder().decode(Weather.self, from: data)
               {
+                self.receivedWeather = weather.self
                 completition(weather)
-                print("let weather")
-                //self.receivedWeather = weather
-              //  print(self.receivedWeather ?? "")
-            
+                print(self.receivedWeather ?? "receivedWeather is nil")
               }
               else {
               }
           }
           task.resume()
         
-        print("task.resume()")
     }
 
 

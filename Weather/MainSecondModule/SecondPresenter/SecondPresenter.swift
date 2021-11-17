@@ -36,10 +36,8 @@ class SecondPresenter: SecondPresenterProtocol {
                 guard self != nil else {return}
                 
             }
-            //weatherResult = networkServise.receivedWeather
-           // print(weatherResult)
         }
-        return weatherResult
+        return networkServise.receivedWeather
     }
    
          
