@@ -22,7 +22,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         CityTableView.dataSource = self
         CityTableView.delegate = self
         self.nameCitySearch.delegate = self
+        cityArray = presenter.showCities().sorted{ $0.name ?? "" < $1.name ?? "" }
     }
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         textSearch = searchBar.text
@@ -33,10 +35,12 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 }
 
 extension MainViewController: UITableViewDataSource {
+    //количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityArray?.count ?? 0
     }
     
+    // заполнение cell массивом (переделать под 2 секции)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
         let model = cityArray?[indexPath.row]

@@ -16,7 +16,7 @@ class SecondViewController: UIViewController, SecondViewProtocol {
     @IBOutlet weak var tempMinMax: UILabel!
     @IBOutlet weak var tempFeelsLike: UILabel!
     @IBOutlet weak var windSpeed : UILabel!
-    @IBOutlet weak var spiner: UIActivityIndicatorView! // добавить в протокол
+    @IBOutlet weak var spiner: UIActivityIndicatorView! // добавить в протокол (не получилось)
     //
     var presenter: SecondPresenterProtocol!
     var cityCountry: String?
@@ -32,6 +32,8 @@ class SecondViewController: UIViewController, SecondViewProtocol {
         
         
         spiner.startAnimating()
+        spiner.hidesWhenStopped = true
+        // spiner.stopAnimating()
         if spiner.isAnimating {
             spinerIsOn = true
         }
@@ -39,17 +41,9 @@ class SecondViewController: UIViewController, SecondViewProtocol {
        // загрузить погоду
         presenter.loadWeather()
         
-        // сохранить результат для выведения на экран, остановить spiner
         
-       // spiner.stopAnimating()
-       // spiner.hidesWhenStopped = true
        
-    }
-    
-    func updateUIWithWeather(weather: Weather) {
-        print("updateUIWithWeather")
-            // заполнить тексты
-        
+       
     }
     
     func dateToday() {
@@ -59,6 +53,20 @@ class SecondViewController: UIViewController, SecondViewProtocol {
         let result = formatter.string(from: date)
         today.text = result
     }
+    
+    
+    func updateUIWithWeather(weather: Weather) {
+        print("updateUIWithWeather")
+        tempNow.text = String(weather.main?.temp ?? 0.0)
+        tempMinMax.text = String(weather.main?.tempMin ?? 0.0) + " / " + String(weather.main?.tempMin ?? 0.0)
+        tempFeelsLike.text = String(weather.main?.feelsLike ?? 0.0)
+        windSpeed.text = String(weather.wind?.speed ?? 0.0)
+        
+            // заполнить тексты
+        
+    }
+    
+    
     
     
 }

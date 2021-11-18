@@ -32,7 +32,7 @@ class NetworkService: NetworkServiceProtocol {
         
     }
    
-    func getAllCity() -> [City]? {  //поменять на getData
+    func getAllCity() -> [City]? {
         do {
             let decodedData = try JSONDecoder().decode([City].self, from: getData()!)
             return decodedData
@@ -45,18 +45,23 @@ class NetworkService: NetworkServiceProtocol {
     func getWeather(string: String, completition: @escaping(Weather) -> Void) {
           let url = "https://api.openweathermap.org/data/2.5/weather?q=" + string + "&appid=a0c15454e4511c5f6f347ad2fd72b355"
           let request = URLRequest(url: URL(string: url)!)
+        print("начало метода")
           let task = URLSession.shared.dataTask(with: request) {
               data, response, error in
+            DispatchQueue.main.async {
+                print("клоужер")
               if let data = data, let weather = try? JSONDecoder().decode(Weather.self, from: data)
               {
+              
                 self.receivedWeather = weather.self
                 completition(weather)
-                print("УРАУРАУРАУРАУРАУРА \(self.receivedWeather)" ?? "receivedWeather is nil")
               }
               else {
               }
           }
+          }
           task.resume()
+        print("task")
         
     }
 
