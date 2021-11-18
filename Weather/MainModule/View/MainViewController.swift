@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol {
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City]?
+    var selectedСities: [City] = [] // избранные города
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
     var textSearch : String?
@@ -35,9 +36,26 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 }
 
 extension MainViewController: UITableViewDataSource {
+    
+    //количество секций
+    func numberOfSections(in: UITableView) -> Int {
+        if selectedСities.isEmpty {
+            return 1
+        }
+        return 2
+    }
+
+    
     //количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityArray?.count ?? 0
+        
+        if section == 1 {
+            return selectedСities.count ?? 0 // вставить массив с избранным
+        }
+        else {
+            return cityArray?.count ?? 0
+        }
+        
     }
     
     // заполнение cell массивом (переделать под 2 секции)
@@ -49,7 +67,7 @@ extension MainViewController: UITableViewDataSource {
         return cell
         
     }
-    
+    //переход на новое вью по клику на ячейку, отображение в лейбле выбранного города
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row)")
               let newVC = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
@@ -59,6 +77,7 @@ extension MainViewController: UITableViewDataSource {
         print(newVC?.cityCountry)
         
     }
+    
     }
 
 
