@@ -10,8 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol {
     var presenter: MainViewPresenterProtocol!
-    var cityArray: [City]?
-    var selectedСities: [City] = [] // избранные города
+    var cityArray: [City] = []
+    var selectedСities: [City] = [
+        City(name: "bestCity", country: "bestCounty")
+    ] // избранные города
+    var arrayCityForSections = [CityForSections]()
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
     var textSearch : String?
@@ -24,6 +27,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         CityTableView.delegate = self
         self.nameCitySearch.delegate = self
         cityArray = presenter.showCities().sorted{ $0.name ?? "" < $1.name ?? "" }
+        arrayCityForSections = [
+            CityForSections(nameSection: "Section1", cityListArray: selectedСities),
+            CityForSections(nameSection: "Section2", cityListArray: cityArray)
+        ]
     }
     
     
@@ -39,30 +46,19 @@ extension MainViewController: UITableViewDataSource {
     
     //количество секций
     func numberOfSections(in: UITableView) -> Int {
-        if selectedСities.isEmpty {
-            return 1
-        }
-        return 2
+        return arrayCityForSections.count
     }
-
-    
+        
     //количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 1 {
-            return selectedСities.count ?? 0 // вставить массив с избранным
-        }
-        else {
-            return cityArray?.count ?? 0
-        }
-        
+        arrayCityForSections[section].cityListArray.count
     }
     
     // заполнение cell массивом (переделать под 2 секции)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
-        let model = cityArray?[indexPath.row]
-        cell.labelCell.text = model!.name! + "," + model!.country!
+        let model = arrayCityForSections[indexPath.section].cityListArray[indexPath.row]
+        cell.labelCell.text = model.name! + "," + model.country!
         searchCityForWeather = cell.labelCell.text
         return cell
         
@@ -85,9 +81,8 @@ class CityTableViewCell: UITableViewCell {
     static let idCell = "сityCell"
     
     @IBOutlet weak var cell: UIView!
-    
     @IBOutlet weak var labelCell: UILabel!
-    
+    @IBOutlet weak var like: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

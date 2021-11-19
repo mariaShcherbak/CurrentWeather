@@ -12,4 +12,8 @@ struct City: Codable {
     
 }
 
+struct CityForSections {
+    let nameSection: String
+    let cityListArray: [City]
+}
 
