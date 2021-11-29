@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol {
+class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol, CellProtocol {
+    var like: Bool = false
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City] = []
     var selectedСities: [City] = [
-        City(name: "bestCity", country: "bestCounty")
+        City(name: "bestCity", country: "bestCounty"),
     ] // избранные города
     var arrayCityForSections = [CityForSections]()
     @IBOutlet weak var CityTableView: UITableView!
@@ -54,12 +55,15 @@ extension MainViewController: UITableViewDataSource {
         arrayCityForSections[section].cityListArray.count
     }
     
-    // заполнение cell массивом (переделать под 2 секции)
+    // заполнение cell массивом
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
-        let model = arrayCityForSections[indexPath.section].cityListArray[indexPath.row]
+        var model = arrayCityForSections[indexPath.section].cityListArray[indexPath.row]
         cell.labelCell.text = model.name! + "," + model.country!
         searchCityForWeather = cell.labelCell.text
+        
+        
         return cell
         
     }
@@ -72,17 +76,35 @@ extension MainViewController: UITableViewDataSource {
         newVC?.cityCountry = searchCityForWeather ?? ""
         print(newVC?.cityCountry)
         
+        
+        
     }
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        let point = CityTableView.convert(CGPoint.zero, from: sender)
+        let indexPath = CityTableView.indexPathForRow(at: point)
+        let numberCell = indexPath![1] + 1
+        print(numberCell)
+            }
+    // selectedСities.append(cityArray[indexPath.row])
+      
+    
+    
     
     }
 
+protocol CellProtocol {
+    var selectedСities: [City] {get set}
+}
 
-class CityTableViewCell: UITableViewCell {
+class CityTableViewCell: UITableViewCell, CellProtocol {
+    var selectedСities: [City] = []
+    
+    
+    
     static let idCell = "сityCell"
     
     @IBOutlet weak var cell: UIView!
     @IBOutlet weak var labelCell: UILabel!
-    @IBOutlet weak var like: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -91,6 +113,8 @@ class CityTableViewCell: UITableViewCell {
         super.setSelected(true, animated: true)
         
     }
+    
+  
 }
 
 
