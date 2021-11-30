@@ -51,7 +51,10 @@
                                                         <constraint firstAttribute="width" constant="32" id="Ueh-bu-ijQ"/>
                                                         <constraint firstAttribute="height" constant="30" id="mWy-G1-ZDY"/>
                                                     </constraints>
-                                                    <state key="normal" title="Like" backgroundImage="off">
+                                                    <state key="normal" backgroundImage="off">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                    </state>
+                                                    <state key="highlighted" backgroundImage="on">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                     </state>
                                                     <connections>
@@ -212,6 +215,7 @@
     </scenes>
     <resources>
         <image name="off" width="128" height="128"/>
+        <image name="on" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
