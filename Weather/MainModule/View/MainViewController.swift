@@ -91,9 +91,9 @@ extension MainViewController: UITableViewDataSource {
         else {
             conditionButton = true
             sender.setImage(UIImage(named: "on"), for: .normal)
-            let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
-            let select = self.CityTableView.indexPathForRow(at: buttonPosition)
-            selectedСities.append(cityArray[select!.row])
+           // let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
+          //  let select = self.CityTableView.indexPathForRow(at: buttonPosition)
+            //selectedСities.append(cityArray[select!.row])
             print(selectedСities)
         }
         
