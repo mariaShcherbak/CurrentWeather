@@ -45,24 +45,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-8I-IDu">
-                                                    <rect key="frame" x="373" y="4.9999999999999982" width="30" height="30.333333333333329"/>
-                                                    <state key="normal" title="Like"/>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-8I-IDu">
+                                                    <rect key="frame" x="376" y="8.9999999999999982" width="32" height="30.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="Ueh-bu-ijQ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="mWy-G1-ZDY"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Like" backgroundImage="off">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="likeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4G0-J8-UpG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="2gl-8I-IDu" secondAttribute="bottom" constant="8.6699999999999999" id="0OP-qw-SIe"/>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="top" secondItem="5Dw-li-9TZ" secondAttribute="top" constant="5" id="2be-Te-U8A"/>
-                                                <constraint firstAttribute="trailing" secondItem="2gl-8I-IDu" secondAttribute="trailing" constant="25" id="IOd-wn-3r5"/>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="top" secondItem="5Dw-li-9TZ" secondAttribute="top" constant="5" id="OEG-S2-zuJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="2gl-8I-IDu" secondAttribute="bottom" constant="4.6699999999999999" id="VbO-kL-T59"/>
                                                 <constraint firstItem="1dG-GD-7cw" firstAttribute="centerY" secondItem="5Dw-li-9TZ" secondAttribute="centerY" id="YDw-ZP-9pd"/>
                                                 <constraint firstItem="1dG-GD-7cw" firstAttribute="centerX" secondItem="5Dw-li-9TZ" secondAttribute="centerX" id="god-YG-39O"/>
-                                                <constraint firstAttribute="bottom" secondItem="2gl-8I-IDu" secondAttribute="bottom" constant="8.6699999999999999" id="gtq-ii-gx9"/>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="leading" secondItem="1dG-GD-7cw" secondAttribute="trailing" constant="49" id="iwi-Bj-R6c"/>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="leading" secondItem="1dG-GD-7cw" secondAttribute="trailing" constant="49" id="sZC-GR-vMA"/>
+                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="top" secondItem="5Dw-li-9TZ" secondAttribute="top" constant="9" id="nnW-DO-3zg"/>
+                                                <constraint firstAttribute="trailing" secondItem="2gl-8I-IDu" secondAttribute="trailing" constant="20" symbolic="YES" id="rrR-lq-2QP"/>
+                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="leading" secondItem="1dG-GD-7cw" secondAttribute="trailing" constant="52" id="x4I-h4-tbh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -208,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="off" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

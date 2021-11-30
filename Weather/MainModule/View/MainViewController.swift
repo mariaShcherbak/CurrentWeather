@@ -19,9 +19,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var conditionButton =  false
     var textSearch : String?
     var searchCityForWeather: String?
-    
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
+    
     
     
     override func viewDidLoad() {
@@ -83,15 +83,22 @@ extension MainViewController: UITableViewDataSource {
         
     }
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        if conditionButton == false {
-            conditionButton = true
-            selectedСities.append(cityArray[IndexPath.row])
+        if conditionButton {
+            conditionButton = false
+        //  добавить удаление из избранного
         }
+        else {
+            conditionButton = true
+           // likeButton.setImag
+            
+         //   selectedСities.append(cityArray[IndexPath.row])
+        }
+        
         let point = CityTableView.convert(CGPoint.zero, from: sender)
         let indexPath = CityTableView.indexPathForRow(at: point)
         let numberCell = indexPath![1] + 1
         print(numberCell)
-        selectedСities.append(cityArray[IndexPath.row])
+        
             }
     
     // selectedСities.append(cityArray[indexPath.row])
