@@ -13,10 +13,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City] = []
     var selectedСities: [City] = [
-        City(name: "bestCity", country: "bestCounty"),
+        City(name: "bestCity", country: "bestCounty", isSelected: false)
     ] // избранные города
     var arrayCityForSections = [CityForSections]()
-    var conditionButton =  false
     var textSearch : String?
     var searchCityForWeather: String?
     @IBOutlet weak var CityTableView: UITableView!
@@ -64,10 +63,26 @@ extension MainViewController: UITableViewDataSource {
         let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
         var model = arrayCityForSections[indexPath.section].cityListArray[indexPath.row]
         cell.labelCell.text = model.name! + "," + model.country!
+        cell.callback = {
+            let index = indexPath.row
+            print("button pressed", index)
+            model.isSelected = !(model.isSelected ?? false)
+            self.arrayCityForSections[indexPath.section].cityListArray[indexPath.row] = model
+            if model.isSelected! {
+                self.selectedСities.append(model)
+                print(self.selectedСities)
+                self.CityTableView.reloadData()
+            }
+            
+        }
+        let cellForSelected = self.CityTableView.dequeueReusableCell(withIdentifier: "сityCell", for: indexPath) as! CityTableViewCell
+        print(cellForSelected)
+        cell.conditionButton = model.isSelected ?? false
+        cell.updateButtonState()
         searchCityForWeather = cell.labelCell.text
-        
-        
         return cell
+        
+        
         
     }
     //переход на новое вью по клику на ячейку, отображение в лейбле выбранного города
@@ -82,30 +97,8 @@ extension MainViewController: UITableViewDataSource {
         
         
     }
-    @IBAction func likeButtonPressed(_ sender: UIButton) {
-        if conditionButton {
-            conditionButton = false
-            sender.setImage(UIImage(named: "off"), for: .normal)
-        //  добавить удаление из избранного
-        }
-        else {
-            conditionButton = true
-            sender.setImage(UIImage(named: "on"), for: .normal)
-           // let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
-          //  let select = self.CityTableView.indexPathForRow(at: buttonPosition)
-            //selectedСities.append(cityArray[select!.row])
-            print(selectedСities)
-        }
-        
-        let point = CityTableView.convert(CGPoint.zero, from: sender)
-        let indexPath = CityTableView.indexPathForRow(at: point)
-        let numberCell = indexPath![1] + 1
-        print(numberCell)
-        
-            }
     
-    // selectedСities.append(cityArray[indexPath.row])
-      
+
     
     
     
@@ -117,13 +110,17 @@ protocol CellProtocol {
 
 class CityTableViewCell: UITableViewCell, CellProtocol {
     var selectedСities: [City] = []
-    
+    var conditionButton = false
     
     
     static let idCell = "сityCell"
     
     @IBOutlet weak var cell: UIView!
     @IBOutlet weak var labelCell: UILabel!
+    @IBOutlet weak var buttonInCell: UIButton!
+    var callback: (()->Void)?
+   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -132,8 +129,26 @@ class CityTableViewCell: UITableViewCell, CellProtocol {
         super.setSelected(true, animated: true)
         
     }
+    func callback(indexPath: IndexPath) {}
+    
+   @IBAction func likeButtonPressed(_ sender: UIButton) {
+        callback?()
+        conditionButton = !conditionButton
+        updateButtonState()
+    }
     
   
+    func updateButtonState() {
+        if conditionButton {
+            buttonInCell.setImage(UIImage(named: "on"), for: .normal)
+        //  добавить удаление из избранного
+        }
+        else {
+            buttonInCell.setImage(UIImage(named: "true"), for: .normal)
+            
+            //print(selectedСities)
+        }
+    }
 }
 
 

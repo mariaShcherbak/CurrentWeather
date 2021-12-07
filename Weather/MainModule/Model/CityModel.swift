@@ -9,10 +9,11 @@ import Foundation
 struct City: Codable {
     let name: String?
     let country: String?
+    var isSelected: Bool?
 }
 
 struct CityForSections {
     let nameSection: String
-    let cityListArray: [City]
+    var cityListArray: [City]
 }
 
