@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol, CellProtocol {
-    var like: Bool = false
-    var presenter: MainViewPresenterProtocol!
-    var cityArray: [City] = []
+    let defaultsSelectedCities = UserDefaults.standard
     var selectedСities: [City] = [
         City(name: "bestCity", country: "bestCounty", isSelected: false)
     ] // избранные города
+    var like: Bool = false
+    var presenter: MainViewPresenterProtocol!
+    var cityArray: [City] = []
     var arrayCityForSections = [CityForSections]()
     var textSearch : String?
     var searchCityForWeather: String?
@@ -25,6 +26,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.CityTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ViewCell")
+        self.CityTableView.register(UINib(nibName: "ViewCell", bundle: nil), forCellReuseIdentifier: "ViewCell")
+        
         presenter = MainPresenter(view: self, networkServise: NetworkService())
         CityTableView.dataSource = self
         CityTableView.delegate = self
@@ -40,7 +44,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         textSearch = searchBar.text
         cityArray = presenter.searchWithText(textSearch!)
-        print(cityArray ?? "the city is not in the list")
+        print(cityArray )
         CityTableView.reloadData()
         }
 }
@@ -60,9 +64,10 @@ extension MainViewController: UITableViewDataSource {
     // заполнение cell массивом
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = CityTableView.dequeueReusableCell(withIdentifier: "сityCell") as! CityTableViewCell
+        if let cell = CityTableView.dequeueReusableCell(withIdentifier: "ViewCell", for: indexPath) as? TableViewCell {
         var model = arrayCityForSections[indexPath.section].cityListArray[indexPath.row]
         cell.labelCell.text = model.name! + "," + model.country!
+        
         cell.callback = {
             let index = indexPath.row
             print("button pressed", index)
@@ -75,14 +80,16 @@ extension MainViewController: UITableViewDataSource {
             }
             
         }
-        let cellForSelected = self.CityTableView.dequeueReusableCell(withIdentifier: "сityCell", for: indexPath) as! CityTableViewCell
+        
+        let cellForSelected = self.CityTableView.dequeueReusableCell(withIdentifier: "ViewCell", for: indexPath) as! TableViewCell
         print(cellForSelected)
         cell.conditionButton = model.isSelected ?? false
         cell.updateButtonState()
         searchCityForWeather = cell.labelCell.text
+        
         return cell
-        
-        
+        }
+        return UITableViewCell()
         
     }
     //переход на новое вью по клику на ячейку, отображение в лейбле выбранного города
@@ -92,7 +99,7 @@ extension MainViewController: UITableViewDataSource {
        navigationController?.pushViewController(newVC!, animated: true)
         
         newVC?.cityCountry = searchCityForWeather ?? ""
-        print(newVC?.cityCountry)
+        print(newVC?.cityCountry ?? "")
         
         
         
@@ -104,52 +111,6 @@ extension MainViewController: UITableViewDataSource {
     
     }
 
-protocol CellProtocol {
-    var selectedСities: [City] {get set}
-}
-
-class CityTableViewCell: UITableViewCell, CellProtocol {
-    var selectedСities: [City] = []
-    var conditionButton = false
-    
-    
-    static let idCell = "сityCell"
-    
-    @IBOutlet weak var cell: UIView!
-    @IBOutlet weak var labelCell: UILabel!
-    @IBOutlet weak var buttonInCell: UIButton!
-    var callback: (()->Void)?
-   
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(true, animated: true)
-        
-    }
-    func callback(indexPath: IndexPath) {}
-    
-   @IBAction func likeButtonPressed(_ sender: UIButton) {
-        callback?()
-        conditionButton = !conditionButton
-        updateButtonState()
-    }
-    
-  
-    func updateButtonState() {
-        if conditionButton {
-            buttonInCell.setImage(UIImage(named: "on"), for: .normal)
-        //  добавить удаление из избранного
-        }
-        else {
-            buttonInCell.setImage(UIImage(named: "true"), for: .normal)
-            
-            //print(selectedСities)
-        }
-    }
-}
 
 
 

@@ -27,57 +27,6 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="сityCell" rowHeight="120" id="j5N-hz-HxA" customClass="CityTableViewCell" customModule="Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="428" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j5N-hz-HxA" id="5Dw-li-9TZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-8I-IDu">
-                                                    <rect key="frame" x="368" y="10" width="30" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="CQr-3k-AQF"/>
-                                                        <constraint firstAttribute="width" constant="30" id="un6-IN-35w"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="off">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                    </state>
-                                                    <state key="highlighted" backgroundImage="on">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="likeButtonPressed:" destination="j5N-hz-HxA" eventType="touchUpInside" id="40h-Tx-GVn"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dG-GD-7cw">
-                                                    <rect key="frame" x="125.99999999999999" y="10" width="41.333333333333329" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="TSE-Ud-ZKY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="leading" secondItem="1dG-GD-7cw" secondAttribute="trailing" constant="200.66666666666669" id="BQK-cv-w4s"/>
-                                                <constraint firstAttribute="bottom" secondItem="1dG-GD-7cw" secondAttribute="bottom" constant="10" id="CEt-Jf-5Ri"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2gl-8I-IDu" secondAttribute="trailing" constant="10" id="KpG-m4-uPd"/>
-                                                <constraint firstItem="2gl-8I-IDu" firstAttribute="top" secondItem="5Dw-li-9TZ" secondAttribute="top" constant="10" id="YDg-1l-1hq"/>
-                                                <constraint firstItem="1dG-GD-7cw" firstAttribute="top" secondItem="5Dw-li-9TZ" secondAttribute="top" constant="10" id="cGF-9K-x2r"/>
-                                                <constraint firstAttribute="bottom" secondItem="2gl-8I-IDu" secondAttribute="bottom" constant="10" id="dEw-16-egp"/>
-                                                <constraint firstItem="1dG-GD-7cw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Dw-li-9TZ" secondAttribute="leading" constant="20" symbolic="YES" id="utH-Bp-ME2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="buttonInCell" destination="2gl-8I-IDu" id="Zet-x4-ZSv"/>
-                                            <outlet property="cell" destination="5Dw-li-9TZ" id="HAv-lT-i32"/>
-                                            <outlet property="labelCell" destination="1dG-GD-7cw" id="34o-uK-nUB"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -217,8 +166,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="off" width="128" height="128"/>
-        <image name="on" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
