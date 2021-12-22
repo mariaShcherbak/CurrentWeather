@@ -11,8 +11,9 @@ import UIKit
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, MainViewProtocol, CellProtocol {
     let defaultsSelectedCities = UserDefaults.standard
     var selectedСities: [City] = [
-        City(name: "bestCity", country: "bestCounty", isSelected: false)
+        City(name: "bestCity", country: "bestCounty", isSelected: true)
     ] // избранные города
+    
     var like: Bool = false
     var presenter: MainViewPresenterProtocol!
     var cityArray: [City] = []
@@ -22,22 +23,24 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     @IBOutlet weak var CityTableView: UITableView!
     @IBOutlet weak var nameCitySearch: UISearchBar!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.CityTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ViewCell")
         self.CityTableView.register(UINib(nibName: "ViewCell", bundle: nil), forCellReuseIdentifier: "ViewCell")
-        
         presenter = MainPresenter(view: self, networkServise: NetworkService())
         CityTableView.dataSource = self
         CityTableView.delegate = self
         self.nameCitySearch.delegate = self
         cityArray = presenter.showCities().sorted{ $0.name ?? "" < $1.name ?? "" }
+        if let data = UserDefaults.standard.value(forKey:"selectedСities") as? Data {
+            selectedСities = try! PropertyListDecoder().decode(Array<City>.self, from: data)
+       
+       
+        
         arrayCityForSections = [
             CityForSections(nameSection: "Section1", cityListArray: selectedСities),
             CityForSections(nameSection: "Section2", cityListArray: cityArray)
         ]
+        
     }
     
     
@@ -48,15 +51,13 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         CityTableView.reloadData()
         }
 }
+}
 
 extension MainViewController: UITableViewDataSource {
     
-    //количество секций
     func numberOfSections(in: UITableView) -> Int {
         return arrayCityForSections.count
     }
-        
-    //количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arrayCityForSections[section].cityListArray.count
     }
@@ -76,11 +77,15 @@ extension MainViewController: UITableViewDataSource {
             if model.isSelected! {
                 self.selectedСities.append(model)
                 print(self.selectedСities)
-                self.CityTableView.reloadData()
+                
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(self.selectedСities), forKey:"selectedСities")
+                
+               
             }
-            
+                
+                self.CityTableView.reloadData()
         }
-        
+            
         let cellForSelected = self.CityTableView.dequeueReusableCell(withIdentifier: "ViewCell", for: indexPath) as! TableViewCell
         print(cellForSelected)
         cell.conditionButton = model.isSelected ?? false
@@ -106,8 +111,6 @@ extension MainViewController: UITableViewDataSource {
     }
     
 
-    
-    
     
     }
 
