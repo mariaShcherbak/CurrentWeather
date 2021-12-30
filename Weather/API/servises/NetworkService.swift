@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol NetworkServiceProtocol {
     func getData() -> Data?
@@ -16,6 +17,8 @@ protocol NetworkServiceProtocol {
 
 
 class NetworkService: NetworkServiceProtocol {
+    
+    
     var receivedWeather : Weather?
    
     func getData() -> Data? {
@@ -43,6 +46,27 @@ class NetworkService: NetworkServiceProtocol {
     }
     
     func getWeather(string: String, completition: @escaping(Weather) -> Void) {
+        let parameters = ["q": string, "appid": "a0c15454e4511c5f6f347ad2fd72b355"]
+        AF.request("https://api.openweathermap.org/data/2.5/weather?", parameters: parameters, encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
+            (responseData) in
+            guard let data = responseData.data else {return}
+            do {
+                let weather = try JSONDecoder().decode(Weather.self, from: data)
+                
+                print(weather)
+                
+                self.receivedWeather = weather
+                completition(weather)
+            } catch {
+                print("error")
+            }
+        }
+            
+        }
+    
+            
+   
+    func getWeather2(string: String, completition: @escaping(Weather) -> Void) {
           let url = "https://api.openweathermap.org/data/2.5/weather?q=" + string + "&appid=a0c15454e4511c5f6f347ad2fd72b355"
           let request = URLRequest(url: URL(string: url)!)
         print("начало метода")
@@ -65,6 +89,6 @@ class NetworkService: NetworkServiceProtocol {
         
     }
 
-
-    
 }
+    
+

@@ -65,7 +65,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, MainViewProtoco
         CityTableView.reloadData()
     }
 
-    private func modelAtIndex(_ index: Int, atSection section: Int) -> City {
+    private func modelAtIndex(_ index: Int, atSection section: Int) -> City { // ??????
         let section = sections[section]
         switch section {
         case .favorites:
@@ -78,7 +78,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, MainViewProtoco
     private func moveCityToAppropriateArray(_ city: City) {
         let isSelected = city.isSelected ?? false
         if isSelected {
-            if let index = cityArray.firstIndex(of: city), selectedСities.firstIndex(of: city) == nil {
+            if let index = cityArray.firstIndex(of: city), selectedСities.firstIndex(of: city) == nil { //проверка на то что это город а не набор знаков?
                 cityArray.remove(at: index)
                 selectedСities.append(city)
                 selectedСities.sort { $0.name ?? "" < $1.name ?? "" }
@@ -91,7 +91,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, MainViewProtoco
             }
         }
     }
-
+    // убрать избранные из списка, вернуть отсортированный
     private func setAllCitiesWithoutSelected(allCities: [City], selected: [City]) {
         var cities = allCities
         for city in selected {
@@ -101,7 +101,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, MainViewProtoco
         }
         cityArray = cities.sorted{ $0.name ?? "" < $1.name ?? "" }
     }
-
+    // сохраняет список избранных
     private func saveChanges() {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(self.selectedСities), forKey:"selectedСities")
     }
